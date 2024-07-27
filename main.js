@@ -102,10 +102,13 @@ data = [
 
 const addtocartbuttons = document.querySelectorAll(".add-to-cart");
 const afteraddtocart = document.querySelectorAll(".after-add-to-cart");
+let cart = [];
 
 const addtocartbutton = addtocartbuttons.forEach((button) => {
-  button.addEventListener("click", (button) => {
-    const addingtocart = document.querySelector(".add-to-cart");
-    addingtocart.classList.add("hidden");
+  button.addEventListener("click", () => {
+    const afteraddtocartappear = afteraddtocart.forEach((afterbutton) => {
+      button.classList.add("hidden");
+      afterbutton.classList.remove("hidden");
+    });
   });
 });
