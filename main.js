@@ -102,13 +102,21 @@ data = [
 
 const addtocartbuttons = document.querySelectorAll(".add-to-cart");
 const afteraddtocart = document.querySelectorAll(".after-add-to-cart");
+let i = 0;
 let cart = [];
 
 const addtocartbutton = addtocartbuttons.forEach((button) => {
   button.addEventListener("click", () => {
+    addtoCart(button);
     const afteraddtocartappear = afteraddtocart.forEach((afterbutton) => {
       button.classList.add("hidden");
       afterbutton.classList.remove("hidden");
     });
   });
 });
+
+function addtoCart(button){
+  i = button.dataset.option
+  cart.push(data[i].name)
+  console.log(cart)
+}
