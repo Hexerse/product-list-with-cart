@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Frontend Mentor | Product list with cart</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+</head>
+<body>
+  <main class="products__main">
+    <header class="products__header"><h1>Desserts</h1></header>
+
+    <section class="products">
+
+    <article class="container products__waffle">
+      <figure class="container__image">
+        <img src="./assets/images/image-waffle-mobile.jpg" alt="">
+        <button class="add-to-cart">Add to Cart</button>
+        <span class="after-add-to-cart hidden"><button class="cart-minus"></button><p class="number__of__items">1</p><button class="cart-add"></button></span>
+      </figure>
+      <div class="container__text">
+        <p class="category">Waffle</p>
+        <p class="category__item">Waffle with Berries</p>
+        <p class="cost">$6.50</p>
+      </div>
+    </article>
+
+    <article class="container products__creme__brulee">
+      <figure class="container__image">
+        <img src="./assets/images/image-creme-brulee-mobile.jpg" alt="">
+        <button class="add-to-cart">Add to Cart</button>
+        <span class="after-add-to-cart hidden"><button class="cart-minus"></button><p class="number__of__items">1</p><button class="cart-add"></button></span>
+      </figure>
+      <div class="container__text">
+        <p class="category">Crème Brûlée</p>
+        <p class="category_item">Vanilla Bean Crème Brûlée</p>
+        <p class="cost">$7.00</p>
+      </div>
+    </article>
+
+    <article class="container products__macaron">
+      <figure class="container__image">
+        <img src="./assets/images/image-macaron-mobile.jpg" alt="">
+        <button class="add-to-cart">Add to Cart</button>
+        <span class="after-add-to-cart hidden"><button class="cart-minus"></button><p class="number__of__items">1</p><button class="cart-add"></button></span>
+      </figure>
+      <div class="container__text">
+        <p class="category">Macaron</p>
+        <p class="category_item">Macaron Mix of Five</p>
+        <p class="cost">$8.00</p>
+      </div>
+    </article>
+
+    <article class="container products__tiramisu">
+      <figure class="container__image">
+        <img src="./assets/images/image-tiramisu-mobile.jpg" alt="">
+        <button class="add-to-cart">Add to Cart</button>
+        <span class="after-add-to-cart hidden"><button class="cart-minus"></button><p class="number__of__items">1</p><button class="cart-add"></button></span>
+      </figure>
+      <div class="container__text">
+        <p class="category">Tiramisu</p>
+        <p class="category_item">Classic Tiramisu</p>
+        <p class="cost">$5.50</p>
+      </div>
+    </article>
+
+    <article class="container products__baklava">
+      <figure class="container__image">
+        <img src="./assets/images/image-baklava-mobile.jpg" alt="">
+        <button class="add-to-cart">Add to Cart</button>
+        <span class="after-add-to-cart hidden"><button class="cart-minus"></button><p class="number__of__items">1</p><button class="cart-add"></button></span>
+      </figure>
+      <div class="container__text">
+        <p class="category">Baklava</p>
+        <p class="category_item">Pistachio Baklava</p>
+        <p class="cost">$4.00</p>
+      </div>
+    </article>
+
+    <article class="container products__pie">
+      <figure class="container__image">
+        <img src="./assets/images/image-meringue-mobile.jpg" alt="">
+        <button class="add-to-cart">Add to Cart</button>
+        <span class="after-add-to-cart hidden"><button class="cart-minus"></button><p class="number__of__items">1</p><button class="cart-add"></button></span>
+      </figure>
+      <div class="container__text">
+        <p class="category">Pie</p>
+        <p class="category_item">Lemon Meringue Pie</p>
+        <p class="cost">$5.00</p>
+      </div>
+    </article>
+
+    <article class="container products__cake">
+      <figure class="container__image">
+        <img src="./assets/images/image-cake-mobile.jpg" alt="">
+        <button class="add-to-cart">Add to Cart</button>
+        <span class="after-add-to-cart hidden"><button class="cart-minus"></button><p class="number__of__items">1</p><button class="cart-add"></button></span>
+      </figure>
+      <div class="container__text">
+        <p class="category">Cake</p>
+        <p class="category_item">Red Velvet Cake</p>
+        <p class="cost">$4.50</p>
+      </div>
+    </article>
+
+    <article class="container products__brownie">
+      <figure class="container__image">
+        <img src="./assets/images/image-brownie-mobile.jpg" alt="">
+        <button class="add-to-cart">Add to Cart</button>
+        <span class="after-add-to-cart hidden"><button class="cart-minus"></button><p class="number__of__items">1</p><button class="cart-add"></button></span>
+      </figure>
+      <div class="container__text">
+        <p class="category">Brownie</p>
+        <p class="category_item">Salted Caramel Brownie</p>
+        <p class="cost">$4.50</p>
+      </div>
+    </article>
+
+    <article class="container products__panna__cotta">
+      <figure class="container__image">
+        <img src="./assets/images/image-panna-cotta-mobile.jpg" alt="">
+        <button class="add-to-cart">Add to Cart</button>
+        <span class="after-add-to-cart hidden"><button class="cart-minus"></button><p class="number__of__items">1</p><button class="cart-add"></button></span>
+      </figure>
+      <div class="container__text">
+        <p class="category">Panna Cotta</p>
+        <p class="category_item">Vanilla Panna Cotta</p>
+        <p class="cost">$6.50</p>
+      </div>
+    </article>
+  </section>
+
+  <aside class="cart">
+    <div class="cart__text">
+      <div class="cart_heading">
+        <h2 class="cart__quantity">Your Cart (<!-- Quantity -->)</h2>
+      </div>
+
+        <div class="cart__item">
+          <div class="cart__item__header">
+            <h4>Classic Tiramisu</h4>
+          </div>
+          <div class="cart__item__text">
+            <p class="item__amount">1x</p>
+            <p class="cost__per__item">@ $5.50</p>
+            <p class="total__cost">$5.50</p>
+          </div>
+        </div>
+        
+
+        <div class="order__total">
+          <p class="order__total__text">Order Total</p>
+          <p class="order__total__amount">$46.50</p>
+        </div>
+      </div>
+      <button class="order__button">Confirm Order</button>
+    </div>
+  </aside>
+
+</main>
+  <script src="main.js"></script>
+</body>
+</html>
