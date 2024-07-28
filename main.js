@@ -102,21 +102,97 @@ data = [
 
 const addtocartbuttons = document.querySelectorAll(".add-to-cart");
 const afteraddtocart = document.querySelectorAll(".after-add-to-cart");
+const total = document.querySelector(".quantity");
+
 let i = 0;
+let totalValue = 0;
 let cart = [];
 
-const addtocartbutton = addtocartbuttons.forEach((button) => {
+const addtocartbutton = addtocartbuttons.forEach((button, index) => {
   button.addEventListener("click", () => {
+    button.classList.add("hidden");
+    afteraddtocart[index].classList.remove("hidden");
+    totalValue += 1;
+    printtotalValue(totalValue);
+    cartManager(index);
     addtoCart(button);
-    const afteraddtocartappear = afteraddtocart.forEach((afterbutton) => {
-      button.classList.add("hidden");
-      afterbutton.classList.remove("hidden");
-    });
   });
 });
 
-function addtoCart(button){
-  i = button.dataset.option
-  cart.push(data[i].name)
-  console.log(cart)
+function addtoCart(button) {
+  i = button.dataset.option;
+  cart.push(data[i]);
+  console.log(cart);
+  generateHTML(data[i], i);
 }
+
+function cartManager(index) {
+  let currentValue;
+  const smallCarts = document.querySelectorAll(".number__of__items");
+  const itemAmount = document.querySelectorAll(".item__amount");
+  //compares the index to make sure values are decreased correctly
+  const minus = document
+    .querySelectorAll(".cart-minus")
+    .forEach((selector, minusIndex) => {
+      selector.addEventListener("click", () => {
+        if (index === minusIndex) {
+          smallCarts[index].innerHTML -= 1;
+          totalValue -= 1;
+          currentValue = smallCarts[index].innerHTML;
+          printtotalValue(totalValue);
+          itemamountTracker(currentValue, index);
+        }
+      });
+    });
+    //compares the selector index and addindex to make sure that values are added correctly
+  const add = document
+    .querySelectorAll(".cart-add")
+    .forEach((selector, addIndex) => {
+      selector.addEventListener("click", () => {
+        if (index === addIndex) {
+          currentValue = parseInt(smallCarts[index].innerHTML);
+          currentValue += 1;
+          totalValue += 1;
+          smallCarts[index].innerHTML = currentValue;
+          printtotalValue(totalValue);
+          itemamountTracker(currentValue, index);
+        }
+      });
+    });
+  smallCarts[index].innerHTML += 1;
+}
+
+//Prints total value
+const printtotalValue = (totalValue) => {
+  total.innerHTML = totalValue;
+};
+
+printtotalValue(totalValue);
+
+//Generates the cart items
+function generateHTML(cartItem, data) {
+  const div = document.querySelector(".cart__item");
+  let html = "";
+  html += `<div class="cart__item__header">
+    <h4>${cartItem.name}</h4>
+  </div>
+  <div class="cart__item__text">
+    <p class="item__amount" data-item="${data}">1x</p>
+    <p class="cost__per__item">@ $${cartItem.price.toFixed(2)}</p>
+    <p class="total__cost">$5.50</p>
+  </div> `;
+
+  div.innerHTML += html;
+}
+// currentValue from cartManager() takes the currentValue of each item
+// index is the takes value of item arranged in DOM
+function itemamountTracker(currentValue, index) {
+  const itemAmount = document.querySelectorAll(".item__amount");
+  itemAmount.forEach((item) => {
+    if (item.dataset.item == index) {
+      item.innerHTML = `${currentValue}x`;
+    }
+  });
+}
+
+//Still need to do total cost per item and order total
