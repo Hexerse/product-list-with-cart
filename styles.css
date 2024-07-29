@@ -289,7 +289,7 @@ figure.container__image {
   color: var(--clr-Rose-900);
 }
 
-.order__button{
+.order__button {
   border: none;
   background-color: var(--clr-Red);
   border-radius: 3rem;
@@ -298,14 +298,47 @@ figure.container__image {
   margin: 0 1rem 1rem 1rem;
 }
 
-.confirm__page{
+.confirm__page {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border-radius: 1rem;
   position: absolute;
   bottom: 1rem;
   min-height: 20rem;
-  width: 100%;
+  width: 20rem;
   padding: 1rem;
+}
+
+.page {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.orders {
+  background-color: var(--clr-Rose-100);
+  width: 100%;
+  height:100%;
+  margin-bottom: 1rem;
+}
+
+.confirm__page__button {
+  align-self: center;
+  border: none;
+  background-color: var(--clr-Red);
+  border-radius: 3rem;
+  color: white;
+  height: 3rem;
+  margin: 0 1rem 1rem 1rem;
+  width: 100%;
+}
+
+.page img{
+  margin-bottom: 1rem;
+}
+
+.orders__item__info{
+  display: flex;
 }
 
 
