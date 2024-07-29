@@ -80,6 +80,7 @@ h6 {
 body {
   background-color: var(--clr-Rose-100);
   font-family: var(--ff);
+  position: relative;
 }
 
 button:hover {
@@ -287,6 +288,26 @@ figure.container__image {
   font-weight: var(--fw-bold);
   color: var(--clr-Rose-900);
 }
+
+.order__button{
+  border: none;
+  background-color: var(--clr-Red);
+  border-radius: 3rem;
+  color: white;
+  height: 3rem;
+  margin: 0 1rem 1rem 1rem;
+}
+
+.confirm__page{
+  background-color: white;
+  border-radius: 1rem;
+  position: absolute;
+  bottom: 1rem;
+  min-height: 20rem;
+  width: 100%;
+  padding: 1rem;
+}
+
 
 .hidden {
   display: none;

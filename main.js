@@ -103,7 +103,6 @@ data = [
 const addtocartbuttons = document.querySelectorAll(".add-to-cart");
 const afteraddtocart = document.querySelectorAll(".after-add-to-cart");
 const total = document.querySelector(".quantity");
-
 let i = 0;
 let totalValue = 0;
 let cart = [];
@@ -119,11 +118,13 @@ const addtocartbutton = addtocartbuttons.forEach((button, index) => {
   });
 });
 
+//Gives data index and dataset of buttons
 function addtoCart(button) {
   i = button.dataset.option;
   cart.push(data[i]);
   console.log(cart);
   generateHTML(data[i], i);
+  orderTotal();
 }
 
 function cartManager(index) {
@@ -144,7 +145,7 @@ function cartManager(index) {
         }
       });
     });
-    //compares the selector index and addindex to make sure that values are added correctly
+  //compares the selector index and addindex to make sure that values are added correctly
   const add = document
     .querySelectorAll(".cart-add")
     .forEach((selector, addIndex) => {
@@ -178,8 +179,10 @@ function generateHTML(cartItem, data) {
   </div>
   <div class="cart__item__text">
     <p class="item__amount" data-item="${data}">1x</p>
-    <p class="cost__per__item">@ $${cartItem.price.toFixed(2)}</p>
-    <p class="total__cost">$5.50</p>
+    <p class="cost__per__item" data-peritem="${data}">@ $${cartItem.price.toFixed(
+    2
+  )}</p>
+    <p class="total__cost" data-cost="${data}">$${cartItem.price.toFixed(2)}</p>
   </div> `;
 
   div.innerHTML += html;
@@ -188,11 +191,44 @@ function generateHTML(cartItem, data) {
 // index is the takes value of item arranged in DOM
 function itemamountTracker(currentValue, index) {
   const itemAmount = document.querySelectorAll(".item__amount");
+  const totalCost = document.querySelectorAll(".total__cost");
+  const actualCost = document.querySelectorAll(".cost__per__item");
+  let totalValue = 0;
+  let value = 0;
+
   itemAmount.forEach((item) => {
     if (item.dataset.item == index) {
       item.innerHTML = `${currentValue}x`;
+
+      actualCost.forEach((actual) => {
+        if (actual.dataset.peritem == index) {
+          const itemPrice = parseFloat(actual.innerHTML.replace(/[@$]/g, ""));
+
+          totalCost.forEach((cost) => {
+            if (cost.dataset.cost == index) {
+              value = (itemPrice * currentValue).toFixed(2);
+              cost.innerHTML = `$${value}`;
+              orderTotal();
+            }
+          });
+        }
+      });
     }
   });
 }
 
 //Still need to do total cost per item and order total
+const orderTotal = () => {
+  const totalAmount = document.querySelector(".order__total__amount");
+  const totalCost = document.querySelectorAll(".total__cost");
+  let amount = 0;
+
+  totalCost.forEach((total) => {
+    console.log(total.innerHTML.replace("$", ""));
+    amount += parseFloat(total.innerHTML.replace("$", ""));
+  });
+
+  totalAmount.innerHTML = `$${parseFloat(amount)}`;
+};
+
+orderTotal();
